@@ -1,4 +1,4 @@
-const {binaryPivotSearch, search} = require('../33. Search in Rotated Sorted Array');
+const {binaryPivotSearch, search} = require('../33. Search in Rotated Sorted Array').default;
 
 test('example pivot search', () => {
     expect(binaryPivotSearch([4, 5, 6, 7, 0, 1, 2])).toBe(3);
