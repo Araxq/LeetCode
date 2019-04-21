@@ -7,7 +7,7 @@
     "test": "__tests__"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest 34"
   },
   "repository": {
     "type": "git",
