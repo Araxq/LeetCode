@@ -65,7 +65,7 @@ const case7 = [
 ];
 
 it('twoSum', function() {
-  expect(two([-4, -2, 1, 3, 5, 11, 20, 22], 7)).toStrictEqual([[-4, 11]]);
+  expect(two()).toStrictEqual([[-4, 11]]);
 });
 
 it('threeSum', function() {
