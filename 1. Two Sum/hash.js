@@ -3,7 +3,7 @@
  * @param {number} target
  * @return {number[]}
  */
-// hash version
+// hash version (js object are super slow for this)
 var twoSum = function (nums, target) {
   const hashTable = nums.reduce((acc, n, ind) => {
     const isDouble = !!acc[n];
