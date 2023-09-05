@@ -3,44 +3,34 @@
  * @param {number} target
  * @return {number[]}
  */
-// hash version
+// my algo
 var twoSum = function (nums, target) {
-  const hashTable = nums.reduce((acc, n, ind) => {
-    const isDouble = !!acc[n];
+  const origNums = [...nums];
+  nums.sort((a, b) => a - b);
 
-    return {
-      ...acc,
-      [n]: {
-        value: n,
-        ind: isDouble ? acc[n].ind : ind,
-        ind2: isDouble && ind,
-      },
-    };
-  }, {});
+  let i = 0;
+  let j = nums.length - 1;
 
-  let res;
+  let isAnchorI = true;
 
-  nums.some((n, ind) => {
-    const m = hashTable[target - n];
+  while (i < j) {
+    const ni = nums[i];
+    const nj = nums[j];
+    const sum = ni + nj;
 
-    if (m) {
-      if (n === m.value) {
-        if (m.ind2) {
-          res = [ind, m.ind2];
-
-          return true;
-        }
-
-        return false;
-      }
-
-      res = [ind, m.ind];
-
-      return true;
+    if (sum === target) {
+      return [
+        origNums.indexOf(ni),
+        origNums.lastIndexOf(nj),
+      ];
     }
-  });
 
-  return res;
+    if (isAnchorI) {
+      sum > target ? j-- : (isAnchorI = !isAnchorI);
+    } else {
+      sum < target ? i++ : (isAnchorI = !isAnchorI);
+    }
+  }
 };
 
 module.exports = { twoSum };
