@@ -21,4 +21,12 @@ var missingNumber = (nums) => {
   return nums.findIndex((n) => n === undefined);
 };
 
-module.exports = { f: missingNumber };
+var missingNumber2 = (nums) => {
+  var length = nums.length;
+
+  var expectedSum = (length * (length + 1)) >> 1;
+
+  return expectedSum - nums.reduce((acc, n) => acc + n);
+};
+
+module.exports = { f: missingNumber2 };
